@@ -6,10 +6,10 @@ import java.time.format.DateTimeFormatter;
 public class Solution {
     private int id;
     private String created;
-    private String upadated;
+    private String updated;
     private String description;
     private int exerciseId;
-    private int usersId;
+    private int userId;
 
     public Solution() {
         setCreated();
@@ -19,7 +19,7 @@ public class Solution {
         setCreated();
         this.description = description;
         this.exerciseId = exerciseId;
-        this.usersId = usersId;
+        this.userId = usersId;
     }
 
     public int getId() {
@@ -44,18 +44,18 @@ public class Solution {
         this.created = created;
     }
 
-    public String getUpadated() {
-        return upadated;
+    public String getUpdated() {
+        return updated;
     }
 
-    public void setUpadated() {
+    public void setUpdated() {
         LocalDateTime updatedDateTime = LocalDateTime.now();
         DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        this.upadated = updatedDateTime.format(pattern);
+        this.updated = updatedDateTime.format(pattern);
     }
 
     public void setUpadated(String upadated){
-        this.upadated = upadated;
+        this.updated = upadated;
     }
 
     public String getDescription() {
@@ -74,12 +74,12 @@ public class Solution {
         this.exerciseId = exerciseId;
     }
 
-    public int getUsersId() {
-        return usersId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUsersId(int usersId) {
-        this.usersId = usersId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -87,10 +87,10 @@ public class Solution {
         return "Solution{" +
                 "id=" + id +
                 ", created=" + created +
-                ", upadate=" + upadated +
+                ", upadate=" + updated +
                 ", description='" + description + '\'' +
                 ", exerciseid=" + exerciseId +
-                ", usersid=" + usersId +
+                ", usersid=" + userId +
                 '}';
     }
 }

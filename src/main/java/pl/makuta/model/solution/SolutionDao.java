@@ -3,7 +3,9 @@ package pl.makuta.model.solution;
 import pl.makuta.DbUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SolutionDao {
     private static final String CREATE_SOLUTION_QUERY = "INSERT INTO solution(created, updated, description, exerciseid, usersid) VALUES (?, ?, ?, ?, ?)";
@@ -13,6 +15,7 @@ public class SolutionDao {
     private static final String FIND_ALL_SOLUTIONS_QUERY = "SELECT * FROM solution";
     private static final String FIND_ALL_SOLUTIONS_BY_USER_ID_QUERY = "SELECT * FROM solution WHERE usersid = ?";
     private static final String FIND_ALL_SOLUTIONS_BY_EXERCISE_ID_QUERY = "SELECT * FROM solution WHERE exerciseid = ? ORDER BY created";
+    private static final String FIND_RECENT_SOLUTIONS_QUERY = "SELECT * FROM solution ORDER BY created DESC LIMIT";
 
     public Solution create(Solution solution) {
         try (Connection conn = DbUtil.getConnection()) {
@@ -150,6 +153,29 @@ public class SolutionDao {
             }
             return solutions;
         }catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Solution> findRecent(int limit){
+        List<Solution> solutions = new ArrayList<>();
+        try (Connection conn = DbUtil.getConnection()) {
+            PreparedStatement statement = conn.prepareStatement(FIND_RECENT_SOLUTIONS_QUERY);
+            statement.setInt(1, limit);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Solution solution = new Solution();
+                solution.setId(resultSet.getInt("id"));
+                solution.setCreated(resultSet.getString("created"));
+                solution.setUpdated(resultSet.getString("updated"));
+                solution.setDescription(resultSet.getString("description"));
+                solution.setExerciseId(resultSet.getInt("exercise_id"));
+                solution.setUserId(resultSet.getInt("user_id"));
+                solutions.add(solution);
+            }
+            return solutions;
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
