@@ -22,7 +22,7 @@ public class SolutionDao {
             PreparedStatement statement =
                     conn.prepareStatement(CREATE_SOLUTION_QUERY, Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, solution.getCreated());
-            statement.setString(2, solution.getUpadated());
+            statement.setString(2, solution.getUpdated());
             statement.setString(3, solution.getDescription());
             statement.setInt(4, solution.getExerciseId());
             statement.setInt(5, solution.getUsersId());
@@ -46,7 +46,7 @@ public class SolutionDao {
                 Solution solution = new Solution();
                 solution.setId(resultSet.getInt("id"));
                 solution.setCreated(resultSet.getString("created"));
-                solution.setUpadated(resultSet.getString("updated"));
+                solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseid"));
                 solution.setUsersId(resultSet.getInt("usersid"));
@@ -62,8 +62,8 @@ public class SolutionDao {
         try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement statement = conn.prepareStatement(UPDATE_SOLUTION_QUERY);
             statement.setString(1, solution.getCreated());
-            solution.setUpadated();
-            statement.setString(2, solution.getUpadated());
+            solution.setUpdated();
+            statement.setString(2, solution.getUpdated());
             statement.setString(3, solution.getDescription());
             statement.setInt(4, solution.getExerciseId());
             statement.setInt(5, solution.getUsersId());
@@ -99,7 +99,7 @@ public class SolutionDao {
                 Solution solution = new Solution();
                 solution.setId(resultSet.getInt("id"));
                 solution.setCreated(resultSet.getString("created"));
-                solution.setUpadated(resultSet.getString("updated"));
+                solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
@@ -122,7 +122,7 @@ public class SolutionDao {
                 Solution solution = new Solution();
                 solution.setId(resultSet.getInt("id"));
                 solution.setCreated(resultSet.getString("created"));
-                solution.setUpadated(resultSet.getString("updated"));
+                solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
@@ -145,7 +145,7 @@ public class SolutionDao {
                 Solution solution = new Solution();
                 solution.setId((resultSet.getInt("id")));
                 solution.setCreated(resultSet.getString("created"));
-                solution.setUpadated(resultSet.getString("updated"));
+                solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
@@ -171,7 +171,7 @@ public class SolutionDao {
                 solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exercise_id"));
-                solution.setUserId(resultSet.getInt("user_id"));
+                solution.setUsersId(resultSet.getInt("user_id"));
                 solutions.add(solution);
             }
             return solutions;

@@ -9,7 +9,7 @@ public class Solution {
     private String updated;
     private String description;
     private int exerciseId;
-    private int userId;
+    private int usersId;
 
     public Solution() {
         setCreated();
@@ -19,7 +19,7 @@ public class Solution {
         setCreated();
         this.description = description;
         this.exerciseId = exerciseId;
-        this.userId = usersId;
+        this.usersId = usersId;
     }
 
     public int getId() {
@@ -54,8 +54,8 @@ public class Solution {
         this.updated = updatedDateTime.format(pattern);
     }
 
-    public void setUpadated(String upadated){
-        this.updated = upadated;
+    public void setUpdated(String updated){
+        this.updated = updated;
     }
 
     public String getDescription() {
@@ -74,12 +74,12 @@ public class Solution {
         this.exerciseId = exerciseId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUsersId() {
+        return usersId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsersId(int userId) {
+        this.usersId = userId;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class Solution {
                 ", upadate=" + updated +
                 ", description='" + description + '\'' +
                 ", exerciseid=" + exerciseId +
-                ", usersid=" + userId +
+                ", usersid=" + usersId +
                 '}';
     }
 }
