@@ -1,4 +1,4 @@
-package pl.makuta.model.exercise;
+package pl.makuta.model;
 
 public class Exercise {
     private int id;

@@ -1,9 +1,11 @@
-package pl.makuta.model.user;
+package pl.makuta.dao;
 
 import pl.makuta.DbUtil;
+import pl.makuta.model.User;
 
 import java.sql.*;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     private static final String CREATE_USER_QUERY = "INSERT INTO users(name, email, password, groupid) VALUES (?, ?, ?, ?)";
@@ -76,15 +78,9 @@ public class UserDao {
         }
     }
 
-    private User[] addToArray(User u, User[] users) {
-        User[] tmpUsers = Arrays.copyOf(users, users.length + 1);
-        tmpUsers[users.length] = u;
-        return tmpUsers;
-    }
-
-    public User[] findAll() {
+    public List<User> findAll() {
         try (Connection conn = DbUtil.getConnection()) {
-            User[] users = new User[0];
+            List<User> users = new ArrayList<>();
             PreparedStatement statement = conn.prepareStatement(FIND_ALL_USERS_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -94,7 +90,7 @@ public class UserDao {
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
                 user.setGroupId(resultSet.getInt("groupId"));
-                users = addToArray(user, users);
+                users.add(user);
             }
             return users;
         } catch (SQLException e) {
@@ -102,9 +98,9 @@ public class UserDao {
         }
     }
 
-    public User[] findAllByGroupId(int groupId){
+    public List<User> findAllByGroupId(int groupId){
         try (Connection con = DbUtil.getConnection()){
-            User[] users = new User[0];
+            List<User> users = new ArrayList<>();
             PreparedStatement statement = con.prepareStatement(FIND_ALL_USERS_BY_GROUP_ID_QUERY);
             statement.setInt(1, groupId);
             ResultSet resultSet = statement.executeQuery();
@@ -115,7 +111,7 @@ public class UserDao {
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
                 user.setGroupId(resultSet.getInt("groupId"));
-                users = addToArray(user,users);
+                users.add(user);
             }
             return users;
         }catch (SQLException e){

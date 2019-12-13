@@ -1,4 +1,4 @@
-package pl.makuta.model.group;
+package pl.makuta.model;
 
 public class Group {
     private int id;

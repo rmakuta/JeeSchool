@@ -1,10 +1,10 @@
-package pl.makuta.model.solution;
+package pl.makuta.dao;
 
 import pl.makuta.DbUtil;
+import pl.makuta.model.Solution;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SolutionDao {
@@ -15,7 +15,7 @@ public class SolutionDao {
     private static final String FIND_ALL_SOLUTIONS_QUERY = "SELECT * FROM solution";
     private static final String FIND_ALL_SOLUTIONS_BY_USER_ID_QUERY = "SELECT * FROM solution WHERE usersid = ?";
     private static final String FIND_ALL_SOLUTIONS_BY_EXERCISE_ID_QUERY = "SELECT * FROM solution WHERE exerciseid = ? ORDER BY created";
-    private static final String FIND_RECENT_SOLUTIONS_QUERY = "SELECT * FROM solution ORDER BY created DESC LIMIT";
+    private static final String FIND_RECENT_SOLUTIONS_QUERY = "SELECT * FROM solution ORDER BY created DESC LIMIT ?";
 
     public Solution create(Solution solution) {
         try (Connection conn = DbUtil.getConnection()) {
@@ -84,15 +84,9 @@ public class SolutionDao {
         }
     }
 
-    private Solution[] addToArray(Solution s, Solution[] solutions) {
-        Solution[] tmpSolutions = Arrays.copyOf(solutions, solutions.length + 1);
-        tmpSolutions[solutions.length] = s;
-        return tmpSolutions;
-    }
-
-    public Solution[] findAll() {
+    public List<Solution> findAll() {
         try (Connection conn = DbUtil.getConnection()) {
-            Solution[] solutions = new Solution[0];
+            List<Solution> solutions = new ArrayList<>();
             PreparedStatement statement = conn.prepareStatement(FIND_ALL_SOLUTIONS_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -103,7 +97,7 @@ public class SolutionDao {
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
-                solutions = addToArray(solution, solutions);
+                solutions.add(solution);
             }
             return solutions;
         } catch (SQLException e) {
@@ -112,9 +106,9 @@ public class SolutionDao {
         }
     }
 
-    public Solution[] findAllByUserId(int userId){
+    public List<Solution> findAllByUserId(int userId){
         try (Connection con = DbUtil.getConnection()){
-            Solution[] solutions = new Solution[0];
+            List<Solution> solutions = new ArrayList<>();
             PreparedStatement statement = con.prepareStatement(FIND_ALL_SOLUTIONS_BY_USER_ID_QUERY);
             statement.setInt(1, userId);
             ResultSet resultSet = statement.executeQuery();
@@ -126,7 +120,7 @@ public class SolutionDao {
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
-                solutions = addToArray(solution, solutions);
+                solutions.add(solution);
             }
             return solutions;
         }catch (SQLException e){
@@ -135,9 +129,9 @@ public class SolutionDao {
         }
     }
 
-    public Solution[] findAllByExerciseId(int exerciseId){
+    public List<Solution> findAllByExerciseId(int exerciseId){
         try (Connection con = DbUtil.getConnection()){
-            Solution[] solutions = new Solution[0];
+            List<Solution> solutions = new ArrayList<>();
             PreparedStatement statement = con.prepareStatement(FIND_ALL_SOLUTIONS_BY_EXERCISE_ID_QUERY);
             statement.setInt(1, exerciseId);
             ResultSet resultSet = statement.executeQuery();
@@ -149,7 +143,7 @@ public class SolutionDao {
                 solution.setDescription(resultSet.getString("description"));
                 solution.setExerciseId(resultSet.getInt("exerciseId"));
                 solution.setUsersId(resultSet.getInt("usersId"));
-                solutions = addToArray(solution, solutions);
+                solutions.add(solution);
             }
             return solutions;
         }catch (SQLException e){
@@ -170,8 +164,8 @@ public class SolutionDao {
                 solution.setCreated(resultSet.getString("created"));
                 solution.setUpdated(resultSet.getString("updated"));
                 solution.setDescription(resultSet.getString("description"));
-                solution.setExerciseId(resultSet.getInt("exercise_id"));
-                solution.setUsersId(resultSet.getInt("user_id"));
+                solution.setExerciseId(resultSet.getInt("exerciseId"));
+                solution.setUsersId(resultSet.getInt("usersId"));
                 solutions.add(solution);
             }
             return solutions;

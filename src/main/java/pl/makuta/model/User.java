@@ -1,4 +1,4 @@
-package pl.makuta.model.user;
+package pl.makuta.model;
 
 import org.mindrot.jbcrypt.BCrypt;
 

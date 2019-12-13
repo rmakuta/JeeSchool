@@ -1,9 +1,11 @@
-package pl.makuta.model.exercise;
+package pl.makuta.dao;
 
 import pl.makuta.DbUtil;
+import pl.makuta.model.Exercise;
 
 import java.sql.*;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExerciseDao {
     private static final String CREATE_EXERCISE_QUERY = "INSERT INTO exercise(title, description) VALUES (?, ?)";
@@ -34,7 +36,6 @@ public class ExerciseDao {
             PreparedStatement statement = conn.prepareStatement(READ_EXERCISE_QUERY);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
-            System.out.println("hello");
             if (resultSet.next()) {
                 Exercise exercise = new Exercise();
                 exercise.setId(resultSet.getInt("id"));
@@ -70,15 +71,9 @@ public class ExerciseDao {
         }
     }
 
-    private Exercise[] addToArray(Exercise e, Exercise[] exercises) {
-        Exercise[] tmpExercises = Arrays.copyOf(exercises, exercises.length + 1);
-        tmpExercises[exercises.length] = e;
-        return tmpExercises;
-    }
-
-    public Exercise[] findAll() {
+    public List<Exercise> findAll() {
         try (Connection conn = DbUtil.getConnection()) {
-            Exercise[] exercises = new Exercise[0];
+            List<Exercise> exercises = new ArrayList<>();
             PreparedStatement statement = conn.prepareStatement(FIND_ALL_EXERCISES_QUERY);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -86,7 +81,7 @@ public class ExerciseDao {
                 exercise.setId(resultSet.getInt("id"));
                 exercise.setTitle(resultSet.getString("title"));
                 exercise.setDescription(resultSet.getString("description"));
-                exercises = addToArray(exercise, exercises);
+                exercises.add(exercise);
             }
             return exercises;
         } catch (SQLException e) {

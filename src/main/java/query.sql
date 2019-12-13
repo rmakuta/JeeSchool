@@ -70,3 +70,11 @@ INSERT INTO `school`.`users` (`name`, `email`, `password`, `groupid`) VALUES
      ('drugi', 'drugi@zadania.pl', '123', '2'),
      ('trzeci', 'trzeci@zadania.pl', '123', '1');
 
+INSERT INTO `school`.`solution` (`id`, `description`, `exerciseid`, `usersid`) VALUES
+      ('1', 'first solution', '1', '1'),
+      ('2', 'second solution', '1', '2'),
+      ('3', 'third soltion', '1', '3'),
+      ('4', 'fourth solution', '2', '1'),
+      ('5', 'fifth solution', '2', '2'),
+      ('6', 'sixth solution', '2', '3');
+

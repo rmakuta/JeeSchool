@@ -1,4 +1,4 @@
-package pl.makuta.model.solution;
+package pl.makuta.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

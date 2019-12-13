@@ -6,19 +6,18 @@
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
-        <welcome-file>default.html</welcome-file>
     </welcome-file-list>
 
-<!--    <servlet>-->
-<!--        <servlet-name>HomePage</servlet-name>-->
-<!--        <servlet-class>pl.makuta.controller.HomePage</servlet-class>-->
-<!--        <init-param>-->
-<!--            <param-name>number-solutions</param-name>-->
-<!--            <param-value>5</param-value>-->
-<!--        </init-param>-->
-<!--    </servlet>-->
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>HomePage</servlet-name>-->
-<!--        <url-pattern>/</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>pl.makuta.controller.HomePage</servlet-class>
+        <init-param>
+            <param-name>number-solutions</param-name>
+            <param-value>4</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
