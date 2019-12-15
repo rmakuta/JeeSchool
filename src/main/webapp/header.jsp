@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
     <a href="/">Main page</a>
-    <a href="">Group</a>
+    <a href="/groupList">Group</a>
     <a href="">Admin panel</a>
 </header>

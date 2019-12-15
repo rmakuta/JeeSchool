@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="<c:url value='/css/style.css'/>" rel="stylesheet" type="text/css" />
+<%--    <link href="<c:url value='/css/style.css'/>" rel="stylesheet" type="text/css" />--%>
     <jsp:include page="/style.jsp"/>
 </head>
 <body>
