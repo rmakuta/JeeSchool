@@ -23,7 +23,7 @@
         <th>Exercise name</th>
         <th>Solution author</th>
         <th>Date</th>
-        <th>Solution</th>
+        <th>Actions</th>
     </tr>
     <c:forEach items="${solutions}" var="solution" varStatus="theCount">
         <c:choose>
@@ -32,7 +32,7 @@
                     <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
                     <td>${userDao.read(solution.usersId).getName()}</td>
                     <td>${solution.created}</td>
-                    <td>${solution.description}</td>
+                    <td><a href="/exercise.solution?id=${solution.id}">Details</a></td>
                 </tr>
             </c:when>
             <c:otherwise>
@@ -40,7 +40,7 @@
                     <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
                     <td>${userDao.read(solution.usersId).getName()}</td>
                     <td>${solution.created}</td>
-                    <td>${solution.description}</td>
+                    <td><a href="/exercise.solution?id=${solution.id}">Details</a></td>
                 </tr>
             </c:otherwise>
         </c:choose>

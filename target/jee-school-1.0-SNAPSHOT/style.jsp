@@ -44,6 +44,9 @@
         margin-top: 50px;
     }
     h2 {
-        padding-left: 70px;
+        padding-left: 50px;
+    }
+    p {
+        padding-left: 50px;
     }
 </style>
