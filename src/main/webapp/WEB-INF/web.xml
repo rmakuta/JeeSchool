@@ -13,7 +13,7 @@
         <servlet-class>pl.makuta.controller.HomePage</servlet-class>
         <init-param>
             <param-name>number-solutions</param-name>
-            <param-value>4</param-value>
+            <param-value>3</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

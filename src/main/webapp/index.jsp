@@ -15,6 +15,9 @@
     <jsp:include page="/style.jsp"/>
 </head>
 <body>
+<div class="center">
+<jsp:include page="/header.jsp"/>
+<h2>Last submissions</h2>
 <table>
     <tr>
         <th>Exercise name</th>
@@ -43,5 +46,7 @@
         </c:choose>
     </c:forEach>
 </table>
+<jsp:include page="/footer.jsp"/>
+</div>
 </body>
 </html>
