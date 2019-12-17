@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: user
-  Date: 15.12.2019
-  Time: 23:58
+  Date: 17.12.2019
+  Time: 15:34
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Group List</title>
+    <title>Group Users</title>
     <jsp:include page="/style.jsp"/>
 </head>
 <body>
@@ -26,13 +26,13 @@
                 <c:when test="${(theCount.count%2) == 0}">
                     <tr class="bgc">
                         <td>${group.name}</td>
-                        <td><a href="/exercise.solution?id=${group.id}">Users</a></td>
+                        <td><a href="/groupUsersList?id=${group.id}">Users</a></td>
                     </tr>
                 </c:when>
                 <c:otherwise>
                     <tr>
                         <td>${group.name}</td>
-                        <td><a href="/exercise.solution?id=${group.id}">Users</a></td>
+                        <td><a href="/groupUsersList?id=${group.id}">Users</a></td>
                     </tr>
                 </c:otherwise>
             </c:choose>
@@ -42,3 +42,4 @@
 </div>
 </body>
 </html>
+
