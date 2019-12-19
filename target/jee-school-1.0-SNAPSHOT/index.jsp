@@ -32,7 +32,7 @@
                     <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
                     <td>${userDao.read(solution.usersId).getName()}</td>
                     <td>${solution.created}</td>
-                    <td><a href="/exercise.solution?id=${solution.id}">Details</a></td>
+                    <td><a href="/exerciseSolution?id=${solution.id}">Details</a></td>
                 </tr>
             </c:when>
             <c:otherwise>
@@ -40,7 +40,7 @@
                     <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
                     <td>${userDao.read(solution.usersId).getName()}</td>
                     <td>${solution.created}</td>
-                    <td><a href="/exercise.solution?id=${solution.id}">Details</a></td>
+                    <td><a href="/exerciseSolution?id=${solution.id}">Details</a></td>
                 </tr>
             </c:otherwise>
         </c:choose>

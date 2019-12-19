@@ -15,24 +15,30 @@
 <body>
 <div class="center">
     <jsp:include page="/header.jsp"/>
-    <h2>"${group.name}" group list</h2>
+    <h2>"${user.name}" user details</h2>
+    <p>Name: ${user.name}</p>
+    <p>Email: ${user.email}</p>
+    <h3>Added tasks solutions:</h3>
     <table>
         <tr>
-            <th>Name</th>
+            <th>Exercise name</th>
+            <th>Date</th>
             <th>Actions</th>
         </tr>
-        <c:forEach items="${users}" var="user" varStatus="theCount">
+        <c:forEach items="${solutions}" var="solution" varStatus="theCount">
             <c:choose>
                 <c:when test="${(theCount.count%2) == 0}">
                     <tr class="bgc">
-                        <td>${user.name}</td>
-                        <td><a href="/groupUserDetails?id=${user.id}">Details</a></td>
+                        <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
+                        <td>${solution.created}</td>
+                        <td><a href="/exerciseSolution?id=${solution.id}">Details</a></td>
                     </tr>
                 </c:when>
                 <c:otherwise>
                     <tr>
-                        <td>${user.name}</td>
-                        <td><a href="/groupUserDetails?id=${user.id}">Details</a></td>
+                        <td>${exerciseDao.read(solution.exerciseId).getTitle()}</td>
+                        <td>${solution.created}</td>
+                        <td><a href="/exerciseSolution?id=${solution.id}">Details</a></td>
                     </tr>
                 </c:otherwise>
             </c:choose>

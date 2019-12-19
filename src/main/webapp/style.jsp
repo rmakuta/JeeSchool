@@ -43,7 +43,7 @@
         margin-right: auto;
         margin-top: 50px;
     }
-    h2 {
+    h2, h3 {
         padding-left: 50px;
     }
     p {

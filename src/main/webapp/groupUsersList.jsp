@@ -26,13 +26,13 @@
                 <c:when test="${(theCount.count%2) == 0}">
                     <tr class="bgc">
                         <td>${user.name}</td>
-                        <td><a href="/groupUsersList?id=${group.id}">Details</a></td>
+                        <td><a href="/groupUserDetails?id=${user.id}">Details</a></td>
                     </tr>
                 </c:when>
                 <c:otherwise>
                     <tr>
                         <td>${user.name}</td>
-                        <td><a href="/groupUsersList?id=${group.id}">Details</a></td>
+                        <td><a href="/groupUserDetails?id=${user.id}">Details</a></td>
                     </tr>
                 </c:otherwise>
             </c:choose>
