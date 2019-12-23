@@ -9,5 +9,5 @@
 <header>
     <a href="/">Main page</a>
     <a href="/groupList">Group</a>
-    <a href="">Admin panel</a>
+    <a href="/adminPanel">Admin panel</a>
 </header>

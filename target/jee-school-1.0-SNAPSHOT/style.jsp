@@ -49,4 +49,8 @@
     p {
         padding-left: 50px;
     }
+
+    a {
+        padding: 0px 0px 0px 20px;
+    }
 </style>
