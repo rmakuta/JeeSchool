@@ -17,7 +17,7 @@
     <jsp:include page="/header.jsp"/>
     <h2>Admin panel</h2>
         <p><a href="">Users</a></p>
-        <p><a href="">User groups</a></p>
+        <p><a href="/adminGroups">User groups</a></p>
         <p><a href="">Exercises</a></p>
     <jsp:include page="/footer.jsp"/>
 </div>

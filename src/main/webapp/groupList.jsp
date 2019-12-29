@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Group Users</title>
+    <title>Group list</title>
     <jsp:include page="/style.jsp"/>
 </head>
 <body>

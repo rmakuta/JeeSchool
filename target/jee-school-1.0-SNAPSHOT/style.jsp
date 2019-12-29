@@ -53,4 +53,9 @@
     a {
         padding: 0px 0px 0px 20px;
     }
+
+    p.add {
+        float:  right;
+        padding-right: 70px;
+    }
 </style>
