@@ -42,7 +42,7 @@
             </c:choose>
         </c:forEach>
     </table>
-    <p class="add"><a href="/adminGroupEdit?id=${group.id}">Add new</a></p>
+    <p class="add"><a href="/adminGroupAdd.jsp">Add new</a></p>
     <jsp:include page="/footer.jsp"/>
 </div>
 </body>
