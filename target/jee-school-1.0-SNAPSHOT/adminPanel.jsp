@@ -18,7 +18,7 @@
     <h2>Admin panel</h2>
         <p><a href="/adminUsers">Users</a></p>
         <p><a href="/adminGroups">User groups</a></p>
-        <p><a href="">Exercises</a></p>
+        <p><a href="/adminExercises">Exercises</a></p>
     <jsp:include page="/footer.jsp"/>
 </div>
 </body>
