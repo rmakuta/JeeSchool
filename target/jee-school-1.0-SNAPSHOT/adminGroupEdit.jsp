@@ -9,7 +9,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>Group Add</title>
+    <title>Group Edit</title>
     <jsp:include page="/style.jsp"/>
 </head>
 <body>
@@ -17,7 +17,7 @@
     <jsp:include page="/header.jsp"/>
     <h2>Edit group</h2>
         <form action="/adminGroupEdit" method="post">
-            <p>Group name <input name="name" value="${group.name}"></p>
+            <p>Group name: <input name="name" value="${group.name}"></p>
             <input type="hidden" name="id" value="${group.id}">
             <p>
                 <button type="submit">Save</button>

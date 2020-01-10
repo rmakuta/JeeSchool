@@ -15,7 +15,7 @@
 <body>
 <div class="center">
     <jsp:include page="/header.jsp"/>
-    <h2>Group users</h2>
+    <h2>Admin panel: User groups</h2>
     <table>
         <tr>
             <th>Group name</th>
