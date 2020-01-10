@@ -20,6 +20,7 @@
                     <tr class="bgc">
                         <td>${exercise.title}</td>
                         <td><a href="/adminExerciseEdit?id=${exercise.id}">Edit</a>
+                            <a href="/adminExerciseDelete?id=${exercise.id}">Delete</a>
                         </td>
                     </tr>
                 </c:when>
@@ -27,6 +28,7 @@
                     <tr>
                         <td>${exercise.title}</td>
                         <td><a href="/adminExerciseEdit?id=${exercise.id}">Edit</a>
+                            <a href="/adminExerciseDelete?id=${exercise.id}">Delete</a>
                         </td>
                     </tr>
                 </c:otherwise>

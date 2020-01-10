@@ -20,7 +20,7 @@
                     <tr class="bgc">
                         <td>${user.name}</td>
                         <td><a href="/adminUserEdit?id=${user.id}">Edit</a>
-                                <%--                            <a href="/groupUsersList?id=${group.id}">Delete</a>--%>
+                            <a href="/adminUserDelete?id=${user.id}">Delete</a>
                         </td>
                     </tr>
                 </c:when>
@@ -28,7 +28,7 @@
                     <tr>
                         <td>${user.name}</td>
                         <td><a href="/adminUserEdit?id=${user.id}">Edit</a>
-                                <%--                            <a href="/groupUsersList?id=${group.id}">Delete</a>--%>
+                            <a href="/adminUserDelete?id=${user.id}">Delete</a>
                         </td>
                     </tr>
                 </c:otherwise>
