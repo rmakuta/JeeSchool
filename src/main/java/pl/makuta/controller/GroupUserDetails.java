@@ -1,6 +1,7 @@
 package pl.makuta.controller;
 
 import pl.makuta.dao.ExerciseDao;
+import pl.makuta.dao.GroupDao;
 import pl.makuta.dao.SolutionDao;
 import pl.makuta.dao.UserDao;
 import pl.makuta.model.Solution;
@@ -27,6 +28,7 @@ public class GroupUserDetails extends HttpServlet {
         req.setAttribute("solutions", solutions);
         ExerciseDao exerciseDao = new ExerciseDao();
         req.setAttribute("exerciseDao", exerciseDao);
+        req.setAttribute("groupDao", new GroupDao());
         req.getRequestDispatcher("/groupUserDetails.jsp").forward(req, resp);
     }
 }

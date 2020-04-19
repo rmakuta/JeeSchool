@@ -8,34 +8,40 @@
 <body>
 <div class="center">
     <jsp:include page="/header.jsp"/>
-    <h2>Admin panel: Exercises</h2>
+    <h2>Panel administratora: zadania</h2>
     <table>
         <tr>
-            <th>Title</th>
-            <th>Actions</th>
+            <th>#</th>
+            <th>Tytuł</th>
+            <th>Opis</th>
+            <th>Działanie</th>
         </tr>
         <c:forEach items="${exercises}" var="exercise" varStatus="theCount">
             <c:choose>
                 <c:when test="${(theCount.count%2) == 0}">
                     <tr class="bgc">
+                        <td>${theCount.index+1}</td>
                         <td>${exercise.title}</td>
-                        <td><a href="/adminExerciseEdit?id=${exercise.id}">Edit</a>
-                            <a href="/adminExerciseDelete?id=${exercise.id}">Delete</a>
+                        <td>${exercise.description}</td>
+                        <td><a href="/adminExerciseEdit?id=${exercise.id}">Edytuj</a>
+                            <a href="/adminExerciseDelete?id=${exercise.id}">Usuń</a>
                         </td>
                     </tr>
                 </c:when>
                 <c:otherwise>
                     <tr>
+                        <td>${theCount.index+1}</td>
                         <td>${exercise.title}</td>
-                        <td><a href="/adminExerciseEdit?id=${exercise.id}">Edit</a>
-                            <a href="/adminExerciseDelete?id=${exercise.id}">Delete</a>
+                        <td>${exercise.description}</td>
+                        <td><a href="/adminExerciseEdit?id=${exercise.id}">Edytuj</a>
+                            <a href="/adminExerciseDelete?id=${exercise.id}">Usuń</a>
                         </td>
                     </tr>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
     </table>
-    <p class="add"><a href="/adminExerciseAdd.jsp">Add new</a></p>
+    <p class="add"><a href="/adminExerciseAdd.jsp">Dodaj nowe</a></p>
     <jsp:include page="/footer.jsp"/>
 </div>
 </body>

@@ -14,6 +14,10 @@ import java.io.IOException;
 public class ExerciseSolution extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
+        resp.setContentType("text/html;charset=UTF-8");
+
         SolutionDao solutionDao = new SolutionDao();
         Solution solution = solutionDao.read(Integer.parseInt(req.getParameter("id")));
         req.setAttribute("solution", solution);

@@ -10,7 +10,7 @@ COLLATE = utf8_polish_ci;
 
 CREATE TABLE `school`.`exercise` (
      `id` INT NOT NULL AUTO_INCREMENT,
-     `name` VARCHAR(255) NULL,
+     `title` VARCHAR(255) NULL,
      `description` VARCHAR(255) NULL,
      PRIMARY KEY (`id`),
      UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
@@ -60,7 +60,7 @@ COLLATE = utf8_polish_ci;
 
 INSERT INTO `school`.`user_group` (`name`) VALUES ('pierwsza'), ('druga'), ('trzecia');
 
-INSERT INTO `school`.`exercise` (`name`, `description`) VALUES
+INSERT INTO `school`.`exercise` (`title`, `description`) VALUES
     ('pierwsze', 'opis pierwszego zadania'),
     ('drugie', 'opis drugiego zadania'),
     ('trzecie', 'opis trzeciego zadania');

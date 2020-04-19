@@ -8,13 +8,13 @@
 <body>
 <div class="center">
     <jsp:include page="/header.jsp"/>
-    <h2>Admin panel: Exercise user</h2>
+    <h2>Panel administratora: zadanie użytkownika</h2>
     <form action="/adminExerciseEdit" method="post">
-        <p>Title: <input name="title" value="${exercise.title}"></p>
-        <p>Description: <input name="description" value="${exercise.description}"></p>
+        <p>Tytuł: <input name="title" value="${exercise.title}"></p>
+        <p>Opis: <input name="description" value="${exercise.description}"></p>
         <input type="hidden" name="id" value="${exercise.id}">
         <p>
-            <button type="submit">Save</button>
+            <button type="submit">Zapisz</button>
         </p>
     </form>
     <jsp:include page="/footer.jsp"/>

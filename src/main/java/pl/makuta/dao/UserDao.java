@@ -14,6 +14,7 @@ public class UserDao {
     private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE id = ?";
     private static final String FIND_ALL_USERS_QUERY = "SELECT * FROM users";
     private static final String FIND_ALL_USERS_BY_GROUP_ID_QUERY = "SELECT * FROM users WHERE groupid = ?";
+    private static final String FIND_USER_BY_ID = "SELECT * FROM users WHERE id = ?";
 
     public User create(User user) {
         try (Connection conn = DbUtil.getConnection()) {
@@ -114,6 +115,26 @@ public class UserDao {
                 users.add(user);
             }
             return users;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public User findUserById(int userId){
+        try (Connection conn = DbUtil.getConnection()){
+            User user = new User();
+            PreparedStatement statement = conn.prepareStatement(FIND_USER_BY_ID);
+            statement.setInt(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                user.setId(resultSet.getInt("id"));
+                user.setName(resultSet.getString("name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setGroupId(resultSet.getInt("groupId"));
+            }
+            return user;
         }catch (SQLException e){
             e.printStackTrace();
             return null;

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 11.12.2019
-  Time: 17:53
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     body {
@@ -16,7 +9,7 @@
         margin-right: auto;
         /*margin-top: 50px;*/
         border-collapse: collapse;
-        width: 500px;
+        width: 800px;
     }
     th, td {
         padding: 2px 10px 2px 10px;
@@ -36,7 +29,7 @@
         /*margin-top: 50px;*/
     }
     div.center {
-        width: 600px;
+        width: 1000px;
         height: 400px;
         background-color: white;
         margin-left: auto;

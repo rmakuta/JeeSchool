@@ -13,6 +13,7 @@ public class ExerciseDao {
     private static final String UPDATE_EXERCISE_QUERY = "UPDATE exercise SET title = ?, description = ? where id = ?";
     private static final String DELETE_EXERCISE_QUERY = "DELETE FROM exercise WHERE id = ?";
     private static final String FIND_ALL_EXERCISES_QUERY = "SELECT * FROM exercise";
+    private static final String FIND_EXERCISE_BY_ID_QUERY = "SELECT * FROM exercise WHERE id = ?";
 
     public Exercise create(Exercise exercise) {
         try (Connection conn = DbUtil.getConnection()) {
@@ -86,6 +87,24 @@ public class ExerciseDao {
             return exercises;
         } catch (SQLException e) {
             e.printStackTrace(); return null;
+        }
+    }
+
+    public Exercise findExerciseById(int exerciseId){
+        try (Connection conn = DbUtil.getConnection()){
+            Exercise exercise = new Exercise();
+            PreparedStatement statement = conn.prepareStatement(FIND_EXERCISE_BY_ID_QUERY);
+            statement.setInt(1, exerciseId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                exercise.setId(resultSet.getInt("id"));
+                exercise.setTitle(resultSet.getString("title"));
+                exercise.setDescription(resultSet.getString("description"));
+            }
+            return exercise;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return null;
         }
     }
 }
