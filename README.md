@@ -1,4 +1,4 @@
-#JeeSchool
+# JeeSchool
 
 >Aplikacja wspomagająca zarządzanie szkołą programowania.
 
